@@ -7,7 +7,9 @@ Tool to convert Markdown to Jekyll post format
 Installation
 ------------
 
-TODO
+You can install Majek via RubyGems:
+
+    $ gem install majek
 
 
 Usage
