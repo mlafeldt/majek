@@ -1,13 +1,4 @@
-#!/usr/bin/env ruby
-# Convert Markdown to Jekyll post format
-# Powered by https://github.com/russolsen/md_inc
-# Written by Mathias Lafeldt <mathias.lafeldt@gmail.com>
-
-begin
-  require 'md_inc'
-rescue LoadError
-  abort 'error: you have to install the md_inc gem'
-end
+require 'md_inc'
 
 # Add Octopress commands to MdInc.
 module MdInc
@@ -60,33 +51,4 @@ module MdInc
       end
     end
   end
-end
-
-module Md2Jekyll
-  class Application
-    MATCH_TITLE = %r{^# (.+)$}
-
-    def initialize(argv)
-      @filename = argv.first
-    end
-
-    def run
-      markdown = File.read(@filename)
-      title = markdown.match(MATCH_TITLE)[1]
-      jekyll_body = markdown.gsub(MATCH_TITLE, '')
-      jekyll_header = %Q(---
-layout: post
-title: "#{title}"
-date: #{Time.now}
-comments: true
-categories:
----)
-      tp = MdInc::TextProcessor.new
-      puts tp.process(jekyll_header + jekyll_body)
-    end
-  end
-end
-
-if $0 == __FILE__
-  Md2Jekyll::Application.new(ARGV).run
 end
