@@ -1,0 +1,10 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    md_inc (0.2.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  md_inc
