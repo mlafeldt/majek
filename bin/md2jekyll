@@ -8,6 +8,7 @@ module Md2Jekyll
 
     def initialize(argv)
       @filename = argv.first
+      @base_dir = File.dirname(File.expand_path(@filename))
     end
 
     def run
@@ -21,6 +22,7 @@ date: #{Time.now}
 comments: true
 categories:
 ---)
+      MdInc::Commands::root(@base_dir)
       tp = MdInc::TextProcessor.new
       puts tp.process(jekyll_header + jekyll_body)
     end
