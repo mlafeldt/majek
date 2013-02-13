@@ -1,4 +1,4 @@
-module Md2Jekyll
+module Majek
   class Application
     MATCH_TITLE = %r{^# (.+)$}
 

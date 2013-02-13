@@ -2,6 +2,6 @@
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-require 'md2jekyll'
+require 'majek'
 
-Md2Jekyll::Application.new(ARGV).run
+Majek::Application.new(ARGV).run
