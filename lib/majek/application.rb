@@ -18,8 +18,8 @@ date: #{Time.now}
 comments: true
 categories:
 ---)
-      MdInc::Commands::root(@base_dir)
       tp = MdInc::TextProcessor.new
+      tp.root(@base_dir)
       puts tp.process(jekyll_header + jekyll_body)
     end
   end
