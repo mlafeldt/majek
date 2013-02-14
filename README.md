@@ -3,7 +3,7 @@ Majek
 
 Majek is a preprocessor for Jekyll/Octopress blog posts that helps you to
 concentrate on writing. It allows you to include other files from your Markdown
-and produce posts in Jekyll format.
+(thanks to [md_inc]) and produce posts in Jekyll format.
 
 Majek is especially helpful when you're writing Markdown with a tool like
 [iA Writer] that is more about prose and less about code. Instead of including
@@ -34,10 +34,10 @@ Usage
 Simply pass Majek a Markdown file and it will do the following:
 
 - read the contents of the Markdown file
-- process the text with [md_inc] which provides commands to include other text
+- process the text with md_inc which provides commands to include other text
   files (`.inc`) and code (`.code_inc`) and more
-- process the text using custom md_inc commands for [Octopress], see below
-- add a [Jekyll] header with title, date, categories, etc. (will be configurable
+- process the text using custom md_inc commands for Octopress, see below
+- add a Jekyll header with title, date, categories, etc. (will be configurable
   in the future)
 - output the final text to screen
 
@@ -132,8 +132,6 @@ Contact
 * Twitter: [@mlafeldt](https://twitter.com/mlafeldt)
 
 
-[Jekyll]: https://github.com/mojombo/jekyll
 [LICENSE]: https://github.com/mlafeldt/majek/blob/master/LICENSE
-[Octopress]: http://octopress.org/
 [iA Writer]: http://www.iawriter.com/
 [md_inc]: https://github.com/russolsen/md_inc
