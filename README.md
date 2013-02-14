@@ -55,6 +55,8 @@ Octopress-specific commands:
 - `.render_partial [attributes...]`
 - `.video [attributes...]`
 
+Make sure to also read the documentation of [md_inc] to learn more.
+
 
 Examples
 --------
