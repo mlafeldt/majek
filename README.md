@@ -8,7 +8,8 @@ concentrate on writing. It allows you to include other files from your Markdown
 Majek is especially helpful when you're writing Markdown with a tool like
 [iA Writer] that is more about prose and less about code. Instead of including
 bulky code snippets directly in your Markdown file, you simply insert short
-commands like `.inc` or `.codeblock`, which will then be expanded by Majek.
+commands like `.inc 'foo.txt'` or `.codeblock 'bar.rb'`, which will then be
+expanded by Majek.
 
 
 Installation
