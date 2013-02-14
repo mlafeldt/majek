@@ -29,10 +29,23 @@ Simply pass Majek a Markdown file and it will do the following:
 - read the contents of the Markdown file
 - process the text with [md_inc] which provides commands to include other text
   files (`.inc`) and code (`.code_inc`) and more
-- process the text using custom md_inc commands for [Octopress], e.g.
-  `.codeblock` and `.gist`
-- add a [Jekyll] header with title, date, categories, etc.
+- process the text using custom md_inc commands for [Octopress], see below
+- add a [Jekyll] header with title, date, categories, etc. (will be configurable
+  in the future)
 - output the final text to screen
+
+In addition to the default commands of md_inc, Majek provides the following
+Octopress-specific commands:
+
+- `.blockquote path [,attributes...]`
+- `.codeblock path [,attributes...]`
+- `.pullquote path [,attributes...]`
+- `.gist [attributes...]`
+- `.img [attributes...]`
+- `.include_code [attributes...]`
+- `.jsfiddle [attributes...]`
+- `.render_partial [attributes...]`
+- `.video [attributes...]`
 
 
 Examples
