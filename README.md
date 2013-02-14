@@ -1,7 +1,14 @@
 Majek
 =====
 
-Tool to convert Markdown to Jekyll post format
+Majek is a preprocessor for Jekyll/Octopress blog posts that helps you to
+concentrate on writing. It allows you to include other files from your Markdown
+and produce posts in Jekyll format.
+
+Majek is especially helpful when you're writing Markdown with a tool like
+[iA Writer] that is more about prose and less about code. Instead of including
+bulky code snippets directly in your Markdown file, you simply insert short
+commands like `.inc` or `.codeblock`, which will then be expanded by Majek.
 
 
 Installation
@@ -128,4 +135,5 @@ Contact
 [Jekyll]: https://github.com/mojombo/jekyll
 [LICENSE]: https://github.com/mlafeldt/majek/blob/master/LICENSE
 [Octopress]: http://octopress.org/
+[iA Writer]: http://www.iawriter.com/
 [md_inc]: https://github.com/russolsen/md_inc
