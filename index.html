@@ -1,39 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Majek : Tool to convert Markdown to Jekyll post format" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Majek by mlafeldt</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Majek</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Majek</h1>
+        <p class="header">A preprocessor for Jekyll/Octopress blog posts that helps you to concentrate on writing</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/mlafeldt/majek">View on GitHub</a>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/mlafeldt/majek/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/mlafeldt/majek/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/mlafeldt/majek">View On GitHub</a></li>
+        </ul>
 
-          <h1 id="project_title">Majek</h1>
-          <h2 id="project_tagline">Tool to convert Markdown to Jekyll post format</h2>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/mlafeldt">mlafeldt</a></p>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/mlafeldt/majek/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/mlafeldt/majek/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+      </header>
+      <section>
         <h1>Majek</h1>
 
-<p>Tool to convert Markdown to Jekyll post format</p>
+<p>Majek is a preprocessor for Jekyll/Octopress blog posts that helps you to
+concentrate on writing. It allows you to include other files from your Markdown
+(thanks to <a href="https://github.com/russolsen/md_inc">md_inc</a>) and produce posts in Jekyll format.</p>
+
+<p>Majek is especially helpful when you're writing Markdown with a tool like
+<a href="http://www.iawriter.com/">iA Writer</a> that is more about prose and less about code. Instead of including
+bulky code snippets directly in your Markdown file, you simply insert short
+commands like <code>.inc 'foo.txt'</code> or <code>.codeblock 'bar.rb'</code>, which will then be
+expanded by Majek.</p>
 
 <h2>Installation</h2>
 
@@ -42,9 +49,99 @@
 <pre><code>$ gem install majek
 </code></pre>
 
+<p>Alternatively, you can install the gem from source:</p>
+
+<pre><code>$ git clone git://github.com/mlafeldt/majek.git
+$ cd majek/
+$ bundle install
+$ bundle exec rake install
+</code></pre>
+
 <h2>Usage</h2>
 
 <pre><code>usage: majek &lt;markdown file&gt;
+</code></pre>
+
+<p>Simply pass Majek a Markdown file and it will do the following:</p>
+
+<ul>
+<li>read the contents of the Markdown file</li>
+<li>process the text with md_inc which provides commands to include other text
+files (<code>.inc</code>) and code (<code>.code_inc</code>) and more</li>
+<li>process the text using custom md_inc commands for Octopress, see below</li>
+<li>add a Jekyll header with title, date, categories, etc. (will be configurable
+in the future)</li>
+<li>output the final text to screen</li>
+</ul><p>In addition to the default commands of md_inc, Majek provides the following
+Octopress-specific commands:</p>
+
+<ul>
+<li><code>.blockquote path [,attributes...]</code></li>
+<li><code>.codeblock path [,attributes...]</code></li>
+<li><code>.pullquote path [,attributes...]</code></li>
+<li><code>.gist [attributes...]</code></li>
+<li><code>.img [attributes...]</code></li>
+<li><code>.include_code [attributes...]</code></li>
+<li><code>.jsfiddle [attributes...]</code></li>
+<li><code>.render_partial [attributes...]</code></li>
+<li><code>.video [attributes...]</code></li>
+</ul><p>Make sure to also read the documentation of <a href="https://github.com/russolsen/md_inc">md_inc</a> to learn more.</p>
+
+<h2>Examples</h2>
+
+<p>Given a standard Markdown file like this:</p>
+
+<pre><code>$ cat month_of_coderwall_protips.md
+# One Month of Coderwall Protips
+
+On 1 January 2013, I signed up on [Coderwall](https://coderwall.com/) -- a place
+for developers to share tips and connect with one another. I've been ...
+</code></pre>
+
+<p>Majek will produce text that is ready to be fed into Jekyll:</p>
+
+<pre><code>$ majek one_month_of_coderwall_protips.md
+---
+layout: post
+title: "One Month of Coderwall Protips"
+date: 2013-02-14 11:01:09 +0100
+comments: true
+categories:
+---
+
+On 1 January 2013, I signed up on [Coderwall](https://coderwall.com/) -- a place
+for developers to share tips and connect with one another. I've been ...
+</code></pre>
+
+<p>The second example shows one of the Octopress commands in action:</p>
+
+<pre><code>By stubbing out Chef's `include_recipe` method before the converge, Chef will
+not include any recipes during the test run:
+
+.codeblock 'snippets/stub-spec.rb', 'lang:ruby'
+
+This requires a bit of symlink trickery to work though.
+</code></pre>
+
+<p>The result will include the Ruby code from the specified file (Jekyll stuff
+stripped for brevity):</p>
+
+<pre><code>By stubbing out Chef's `include_recipe` method before the converge, Chef will
+not include any recipes during the test run:
+
+{% codeblock lang:ruby %}
+require 'chefspec'
+
+describe 'The recipe foo::default' do
+  let (:chef_run) do
+    Chef::Recipe.any_instance.stub(:include_recipe)
+    ChefSpec::ChefRunner.new.converge 'foo::default'
+  end
+  # ...
+end
+{% endcodeblock %}
+
+This requires a bit of symlink trickery to work though.
 </code></pre>
 
 <h2>License</h2>
@@ -62,17 +159,11 @@
 </li>
 </ul>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Majek maintained by <a href="https://github.com/mlafeldt">mlafeldt</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-
-    
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>
