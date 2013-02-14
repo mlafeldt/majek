@@ -4,7 +4,7 @@ require File.expand_path('../lib/majek/version', __FILE__)
 Gem::Specification.new do |s|
   s.authors       = ['Mathias Lafeldt']
   s.email         = ['mathias.lafeldt@gmail.com']
-  s.description   = %q{Tool to convert Markdown to Jekyll post format}
+  s.description   = %q{A preprocessor for Jekyll/Octopress blog posts that helps you to concentrate on writing}
   s.summary       = s.description
   s.homepage      = 'http://mlafeldt.github.com/majek'
   s.license       = 'MIT'
