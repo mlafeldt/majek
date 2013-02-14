@@ -77,13 +77,13 @@ On 1 January 2013, I signed up on [Coderwall](https://coderwall.com/) -- a place
 for developers to share tips and connect with one another. I've been ...
 ```
 
-The second example shows one of the Octopress commands:
+The second example shows one of the Octopress commands in action:
 
 ```
 By stubbing out Chef's `include_recipe` method before the converge, Chef will
 not include any recipes during the test run:
 
-.codeblock 'snippets/stub-spec.rb', 'ruby'
+.codeblock 'snippets/stub-spec.rb', 'lang:ruby'
 
 This requires a bit of symlink trickery to work though.
 ```
@@ -95,7 +95,7 @@ stripped for brevity):
 By stubbing out Chef's `include_recipe` method before the converge, Chef will
 not include any recipes during the test run:
 
-{% codeblock ruby %}
+{% codeblock lang:ruby %}
 require 'chefspec'
 
 describe 'The recipe foo::default' do
