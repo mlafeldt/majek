@@ -11,6 +11,13 @@ You can install Majek via RubyGems:
 
     $ gem install majek
 
+Alternatively, you can install the gem from source:
+
+    $ git clone git://github.com/mlafeldt/majek.git
+    $ cd majek/
+    $ bundle install
+    $ bundle exec rake install
+
 
 Usage
 -----
