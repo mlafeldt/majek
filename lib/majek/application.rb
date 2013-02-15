@@ -19,7 +19,7 @@ module Majek
       # TODO make variables configurable
       jekyll_vars = {
         :layout => 'post',
-        :title => title,
+        :title => "\"#{title}\"",
         :date  => Time.now,
         :comments => 'true',
         :categories => nil
