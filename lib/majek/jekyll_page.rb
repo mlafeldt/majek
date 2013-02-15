@@ -14,7 +14,7 @@ module Majek
     end
 
     def render
-      [front_matter, content].join("\n")
+      [front_matter, '',  content].join("\n")
     end
   end
 end

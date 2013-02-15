@@ -10,7 +10,7 @@ module Majek
     def run
       markdown = File.read(@filename)
       title = markdown.match(MATCH_TITLE)[1]
-      content = markdown.gsub(MATCH_TITLE, '')
+      content = markdown.sub(MATCH_TITLE, '').sub(/\n*/, '')
 
       tp = MdInc::TextProcessor.new
       tp.root(@base_dir)
