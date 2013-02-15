@@ -10,17 +10,22 @@ module Majek
     def run
       markdown = File.read(@filename)
       title = markdown.match(MATCH_TITLE)[1]
-      jekyll_body = markdown.gsub(MATCH_TITLE, '')
-      jekyll_header = %Q(---
-layout: post
-title: "#{title}"
-date: #{Time.now}
-comments: true
-categories:
----)
+      content = markdown.gsub(MATCH_TITLE, '')
+
       tp = MdInc::TextProcessor.new
       tp.root(@base_dir)
-      puts tp.process(jekyll_header + jekyll_body)
+      content = tp.process(content)
+
+      # TODO make variables configurable
+      jekyll_vars = {
+        :layout => 'post',
+        :title => title,
+        :date  => Time.now,
+        :comments => 'true',
+        :categories => nil
+      }
+      page = JekyllPage.new(content, jekyll_vars)
+      puts page.render
     end
   end
 end
