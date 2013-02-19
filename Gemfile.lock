@@ -5,7 +5,7 @@ PATH
       md_inc (>= 0.2.8)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     md_inc (0.2.8)
     rake (10.0.3)
