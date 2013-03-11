@@ -19,9 +19,9 @@ module MdInc
       #
       # Examples
       #
-      #   .codeblock 'snippets/stub-spec.rb', 'ruby'
+      #   .codeblock 'snippets/stub-spec.rb', 'lang:ruby'
       #   # =>
-      #   # {% codeblock ruby %}
+      #   # {% codeblock lang:ruby %}
       #   # contents of snippets/stub-spec.rb
       #   # {% endcodeblock %}
       #
