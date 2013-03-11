@@ -17,14 +17,7 @@ module Majek
       content = tp.process(content)
 
       # TODO make variables configurable
-      jekyll_vars = {
-        :layout => 'post',
-        :title => "\"#{title}\"",
-        :date  => Time.now,
-        :comments => 'true',
-        :categories => nil
-      }
-      page = JekyllPage.new(content, jekyll_vars)
+      page = JekyllPage.new content, :layout => 'post', :title => "\"#{title}\""
       puts page.render
     end
   end
