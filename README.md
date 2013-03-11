@@ -1,15 +1,15 @@
 Majek
 =====
 
-Majek is a preprocessor for Jekyll/Octopress blog posts that helps you to
-concentrate on writing. It allows you to include other files from your Markdown
-(thanks to [md_inc]) and produce posts in Jekyll format.
+Majek is a preprocessor for Jekyll blog posts that helps you to concentrate on
+writing. It allows you to include other files from your Markdown (thanks to
+[md_inc]) and produce posts in Jekyll format.
 
 Majek is especially helpful when you're writing Markdown with a tool like
 [iA Writer] that is more about prose and less about code. Instead of including
 bulky code snippets directly in your Markdown file, you simply insert short
-commands like `.inc 'foo.txt'` or `.codeblock 'bar.rb'`, which will then be
-expanded by Majek.
+commands like `.inc 'foo.txt'` or `.highlight 'bar.rb', 'ruby'`, which will then
+be expanded by Majek.
 
 
 Installation
@@ -37,14 +37,30 @@ absent, Majek reads from the standard input):
 
 - read the contents of the Markdown file
 - process the text with md_inc which provides commands to include other text
-  files (`.inc`) and code (`.code_inc`) and more
-- process the text using custom md_inc commands for Octopress, see below
-- add Jekyll header (YAML front matter) with post layout and title (will be
+  files, code snippets, and much more (see Commands)
+- add Jekyll's YAML front matter with post layout and post title (will be
   configurable in the future)
 - output the final text to screen
 
-In addition to the default commands of md_inc, Majek provides the following
-Octopress-specific commands:
+
+Commands
+--------
+
+Majek provides all commands that come with md_inc as well as some additional
+commands for Jekyll and Octopress:
+
+### md_inc
+
+- `.inc path`
+- `.code_inc path [,language]`
+
+Read the documentation of [md_inc] to learn more.
+
+### Jekyll
+
+- `.highlight path, language`
+
+### Octopress
 
 - `.blockquote path [,attributes...]`
 - `.codeblock path [,attributes...]`
@@ -55,8 +71,6 @@ Octopress-specific commands:
 - `.jsfiddle [attributes...]`
 - `.render_partial [attributes...]`
 - `.video [attributes...]`
-
-Make sure to also read the documentation of [md_inc] to learn more.
 
 
 Examples
