@@ -30,9 +30,10 @@ Alternatively, you can install the gem from source:
 Usage
 -----
 
-    usage: majek <markdown file>
+    usage: majek [<markdown file>]
 
-Simply pass Majek a Markdown file and it will do the following:
+Simply pass Majek a Markdown file and it will do the following (if the file is
+absent, Majek reads from the standard input):
 
 - read the contents of the Markdown file
 - process the text with md_inc which provides commands to include other text
