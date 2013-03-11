@@ -39,8 +39,8 @@ absent, Majek reads from the standard input):
 - process the text with md_inc which provides commands to include other text
   files (`.inc`) and code (`.code_inc`) and more
 - process the text using custom md_inc commands for Octopress, see below
-- add a Jekyll header with title, date, categories, etc. (will be configurable
-  in the future)
+- add Jekyll header (YAML front matter) with post layout and title (will be
+  configurable in the future)
 - output the final text to screen
 
 In addition to the default commands of md_inc, Majek provides the following
@@ -79,9 +79,6 @@ $ majek one_month_of_coderwall_protips.md
 ---
 layout: post
 title: "One Month of Coderwall Protips"
-date: 2013-02-14 11:01:09 +0100
-comments: true
-categories:
 ---
 
 On 1 January 2013, I signed up on [Coderwall](https://coderwall.com/) -- a place
