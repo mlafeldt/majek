@@ -17,7 +17,7 @@
     <div class="wrapper">
       <header>
         <h1 class="header">Majek</h1>
-        <p class="header">A preprocessor for Jekyll/Octopress blog posts that helps you to concentrate on writing</p>
+        <p class="header">A preprocessor for Jekyll blog posts that helps you to concentrate on writing</p>
 
         <ul>
           <li class="download"><a class="buttons" href="https://github.com/mlafeldt/majek/zipball/master">Download ZIP</a></li>
@@ -32,15 +32,15 @@
       <section>
         <h1>Majek</h1>
 
-<p>Majek is a preprocessor for Jekyll/Octopress blog posts that helps you to
-concentrate on writing. It allows you to include other files from your Markdown
-(thanks to <a href="https://github.com/russolsen/md_inc">md_inc</a>) and produce posts in Jekyll format.</p>
+<p>Majek is a preprocessor for Jekyll blog posts that helps you to concentrate on
+writing. It allows you to include other files from your Markdown (thanks to
+<a href="https://github.com/russolsen/md_inc">md_inc</a>) and produce posts in Jekyll format.</p>
 
 <p>Majek is especially helpful when you're writing Markdown with a tool like
 <a href="http://www.iawriter.com/">iA Writer</a> that is more about prose and less about code. Instead of including
 bulky code snippets directly in your Markdown file, you simply insert short
-commands like <code>.inc 'foo.txt'</code> or <code>.codeblock 'bar.rb'</code>, which will then be
-expanded by Majek.</p>
+commands like <code>.inc 'foo.txt'</code> or <code>.highlight 'bar.rb', 'ruby'</code>, which will then
+be expanded by Majek.</p>
 
 <h2>Installation</h2>
 
@@ -59,21 +59,36 @@ $ bundle exec rake install
 
 <h2>Usage</h2>
 
-<pre><code>usage: majek &lt;markdown file&gt;
+<pre><code>usage: majek [&lt;markdown file&gt;]
 </code></pre>
 
-<p>Simply pass Majek a Markdown file and it will do the following:</p>
+<p>Simply pass Majek a Markdown file and it will do the following (if the file is
+absent, Majek reads from the standard input):</p>
 
 <ul>
 <li>read the contents of the Markdown file</li>
 <li>process the text with md_inc which provides commands to include other text
-files (<code>.inc</code>) and code (<code>.code_inc</code>) and more</li>
-<li>process the text using custom md_inc commands for Octopress, see below</li>
-<li>add a Jekyll header with title, date, categories, etc. (will be configurable
-in the future)</li>
+files, code snippets, and much more (see Commands)</li>
+<li>add Jekyll's YAML front matter with post layout and post title (will be
+configurable in the future)</li>
 <li>output the final text to screen</li>
-</ul><p>In addition to the default commands of md_inc, Majek provides the following
-Octopress-specific commands:</p>
+</ul><h2>Commands</h2>
+
+<p>Majek provides all commands that come with md_inc as well as some additional
+commands for Jekyll and Octopress:</p>
+
+<h3>md_inc</h3>
+
+<ul>
+<li><code>.inc path</code></li>
+<li><code>.code_inc path [,language]</code></li>
+</ul><p>Read the documentation of <a href="https://github.com/russolsen/md_inc">md_inc</a> to learn more.</p>
+
+<h3>Jekyll</h3>
+
+<ul>
+<li><code>.highlight path, language</code></li>
+</ul><h3>Octopress</h3>
 
 <ul>
 <li><code>.blockquote path [,attributes...]</code></li>
@@ -85,9 +100,7 @@ Octopress-specific commands:</p>
 <li><code>.jsfiddle [attributes...]</code></li>
 <li><code>.render_partial [attributes...]</code></li>
 <li><code>.video [attributes...]</code></li>
-</ul><p>Make sure to also read the documentation of <a href="https://github.com/russolsen/md_inc">md_inc</a> to learn more.</p>
-
-<h2>Examples</h2>
+</ul><h2>Examples</h2>
 
 <p>Given a standard Markdown file like this:</p>
 
@@ -104,9 +117,6 @@ for developers to share tips and connect with one another. I've been ...
 ---
 layout: post
 title: "One Month of Coderwall Protips"
-date: 2013-02-14 11:01:09 +0100
-comments: true
-categories:
 ---
 
 On 1 January 2013, I signed up on [Coderwall](https://coderwall.com/) -- a place
