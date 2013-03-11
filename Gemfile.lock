@@ -2,12 +2,12 @@ PATH
   remote: .
   specs:
     majek (0.1.2)
-      md_inc (>= 0.2.8)
+      md_inc (>= 0.2.9)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    md_inc (0.2.8)
+    md_inc (0.2.9)
     rake (10.0.3)
 
 PLATFORMS

@@ -16,6 +16,6 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.version       = Majek::VERSION
 
-  s.add_dependency 'md_inc', '>= 0.2.8'
+  s.add_dependency 'md_inc', '>= 0.2.9'
   s.add_development_dependency 'rake'
 end
