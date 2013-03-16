@@ -18,8 +18,7 @@ module Majek
       title = match ? match[1] : 'New Post'
       content = @markdown.sub(MATCH_TITLE, '').sub(/\n*/, '')
 
-      tp = MdInc::TextProcessor.new
-      tp.root(@base_dir) unless @base_dir.nil?
+      tp = MdInc::TextProcessor.new(:base_dir => @base_dir)
       content = tp.process(content)
 
       # TODO make variables configurable
