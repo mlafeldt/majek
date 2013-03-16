@@ -17,5 +17,7 @@ Gem::Specification.new do |s|
   s.version       = Majek::VERSION
 
   s.add_dependency 'md_inc', '= 0.3.1'
+
   s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec'
 end
