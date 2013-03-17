@@ -7,7 +7,7 @@ rvm:
 
 install: bundle install
 
-script: bundle exec rake build
+script: bundle exec rake spec
 
 branches:
   only:
