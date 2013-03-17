@@ -26,4 +26,30 @@ module Majek
       puts page.render
     end
   end
+
+  class MarkdownProcessor
+    MATCH_TITLE = %r{^# (.+)$}
+    DEFAULT_TITLE = 'New Post'
+
+    def post_title(text)
+      if md = text.match(MATCH_TITLE)
+        md[1]
+      else
+        DEFAULT_TITLE
+      end
+    end
+
+    def post_content(text)
+      text.sub(MATCH_TITLE, '').sub(/\n*/, '')
+    end
+
+    def process(text)
+      title = post_title(text)
+      content = post_content(text)
+      # TODO make variables configurable
+      vars = { :layout => 'post', :title => "\"#{title}\"" }
+      page = JekyllPage.new(content, vars)
+      page.render
+    end
+  end
 end
